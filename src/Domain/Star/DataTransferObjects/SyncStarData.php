@@ -5,7 +5,7 @@ namespace Domain\Star\DataTransferObjects;
 use Domain\Star\Models\Star;
 use Spatie\DataTransferObject\DataTransferObject;
 
-class CreateBaseStarData extends DataTransferObject
+class SyncStarData extends DataTransferObject
 {
     /**
      * 抖音ID
@@ -29,11 +29,18 @@ class CreateBaseStarData extends DataTransferObject
     public string $douyin_avatar;
 
     /**
+     * 抖音链接
+     *
+     * @var string
+     */
+    public string $douyin_link;
+
+    /**
      * 抖音关注数
      *
      * @var int
      */
-    public int $douyin_focus;
+    public int $douyin_following;
 
     /**
      * 抖音粉丝数
@@ -70,30 +77,29 @@ class CreateBaseStarData extends DataTransferObject
      */
     public static function fromRequest(): self
     {
-        $data = request()->only(['douyin_id']);
-
-        $star = Star::firstOrNew(['douyin_id' => $data['douyin_id']], [
-            'douyin_id' => $data['douyin_id'],
-            'douyin_name' => '',
-            'douyin_avatar' =>'',
-
-            'douyin_focus'=> 0,
-            'douyin_follower' => 0,
-            'douyin_liked' => 0,
-            'douyin_video' => 0,
-            'douyin_like' => 0,
+        $data = request()->only([
+            'douyin_id',
+            'douyin_name',
+            'douyin_avatar',
+            'douyin_link',
+            'douyin_following',
+            'douyin_follower',
+            'douyin_liked',
+            'douyin_video',
+            'douyin_like'
         ]);
 
         return new self([
-            'douyin_id' => $star['douyin_id'],
-            'douyin_name' => $star['douyin_name'],
-            'douyin_avatar' => $star['douyin_avatar'],
+            'douyin_id' => $data['douyin_id'],
+            'douyin_name' => $data['douyin_name'],
+            'douyin_avatar' => $data['douyin_avatar'],
+            'douyin_link' => $data['douyin_link'],
 
-            'douyin_focus' => $star['douyin_focus'],
-            'douyin_follower' => $star['douyin_follower'],
-            'douyin_liked' => $star['douyin_liked'],
-            'douyin_video' => $star['douyin_video'],
-            'douyin_like' => $star['douyin_like'],
+            'douyin_following' => $data['douyin_following'],
+            'douyin_follower' => $data['douyin_follower'],
+            'douyin_liked' => $data['douyin_liked'],
+            'douyin_video' => $data['douyin_video'],
+            'douyin_like' => $data['douyin_like'],
         ]);
     }
 }

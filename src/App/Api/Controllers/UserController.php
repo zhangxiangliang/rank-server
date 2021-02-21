@@ -3,7 +3,7 @@
 namespace App\Api\Controllers;
 
 use Illuminate\Routing\Controller;
-use Domain\User\Collections\UserResource;
+use Domain\User\Resources\UserResource;
 use Domain\User\Actions\CreateWechatUserAction;
 use Domain\User\DataTransferObjects\CreateWechatUserData;
 
@@ -12,7 +12,7 @@ class UserController extends Controller
     /**
      * 用户登录
      *
-     * @return \Domain\User\Collections\UserResource
+     * @return \Domain\User\Resources\UserResource
      */
     public function login()
     {
