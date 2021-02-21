@@ -18,7 +18,7 @@ Route::group(['namespace' => 'App\Api\Controllers', 'prefix' => 'v1'], function 
         Route::post('/login', 'UserController@login');
     });
 
-    Route::group(['prefix' => 'start', ], function () {
+    Route::group(['prefix' => 'star', ], function () {
         Route::get('/', 'StarController@index');
     });
 });
