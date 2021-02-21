@@ -26,7 +26,7 @@ class StarFactory extends Factory
             'douyin_name' => $this->faker->name,
             'douyin_avatar' =>$this->faker->imageUrl(),
 
-            'douyin_focus'=> 0,
+            'douyin_following'=> 0,
             'douyin_follower' => 0,
             'douyin_liked' => 0,
             'douyin_video' => 0,
