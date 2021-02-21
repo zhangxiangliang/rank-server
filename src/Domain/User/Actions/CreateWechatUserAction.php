@@ -10,8 +10,10 @@ class CreateWechatUserAction
 {
     public function __invoke(CreateWechatUserData $wechatUserData): User
     {
-        $user = User::firstOrCreate(['openid' => $wechatUserData->openid], $wechatUserData->all());
-        $user->token = Auth::login($user);
+        $user = User::firstOrCreate(
+            ['openid' => $wechatUserData->openid],
+            $wechatUserData->toArray()
+        );
 
         return $user;
     }
