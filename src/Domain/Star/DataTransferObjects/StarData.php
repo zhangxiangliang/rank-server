@@ -78,14 +78,12 @@ class StarData extends DataTransferObject
     public int $douyin_like;
 
     /**
-     * 格式化请求数据
+     * 格式化模型数据
      *
      * @return self
      */
     public static function fromModel(Star $star): self
     {
-        $baseUrl = "https://v.douyin.com";
-
         return new self([
             'id' => $star->id,
             'douyin_id' => $star->douyin_id,
