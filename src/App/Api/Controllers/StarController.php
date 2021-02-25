@@ -2,21 +2,21 @@
 
 namespace App\Api\Controllers;
 
-use Domain\Star\Models\Star;
-use Domain\Star\Resources\StarCollection;
 use Illuminate\Routing\Controller;
+use Domain\Star\Resources\StarCollection;
+use Domain\Star\Actions\GetStarListAction;
 
 class StarController extends Controller
 {
     /**
-     * 用户登录
+     * 抖音列表
      *
      * @return \Domain\User\Resources\StarCollection
      */
     public function index()
     {
         // 请求数据
-        $stars = Star::paginate(25);
+        $stars = (new GetStarListAction)();
 
         // 响应数据
         return new StarCollection($stars);

@@ -6,7 +6,7 @@ use Domain\Star\DataTransferObjects\CreateStarData;
 use Domain\Star\Models\Star;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
-class CreateStarAction
+class GetStarListAction
 {
     public function __invoke(): LengthAwarePaginator
     {

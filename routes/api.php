@@ -21,4 +21,8 @@ Route::group(['namespace' => 'App\Api\Controllers', 'prefix' => 'v1'], function 
     Route::group(['prefix' => 'star', ], function () {
         Route::get('/', 'StarController@index');
     });
+
+    Route::group(['prefix' => 'log', ], function () {
+        Route::get('/', 'LogController@index');
+    });
 });
