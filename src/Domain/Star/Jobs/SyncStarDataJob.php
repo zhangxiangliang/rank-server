@@ -59,7 +59,7 @@ class SyncStarDataJob implements ShouldQueue
 
         $request["douyin_following"] = (int)$user["following_count"];
         $request["douyin_follower"] = (int)$user["follower_count"];
-        $request["douyin_avatar"] = $this->fixAvatarUrl((string)$user["avatar_larger"]['url_list'][0]);
+        $request["douyin_avatar"] = (string)$user["avatar_larger"]['url_list'][0];
 
         $request["douyin_liked"] = (int)$user["total_favorited"];
         $request["douyin_video"] = (int)$user["aweme_count"];
@@ -67,17 +67,5 @@ class SyncStarDataJob implements ShouldQueue
 
         $syncStarData = SyncStarData::fromRequest();
         (new SyncStarAction)($syncStarData);
-    }
-
-    /**
-     * 修复抖音头像链接不一致
-     * @param string $data
-     *
-     * @return string
-     */
-    public function fixAvatarUrl($data): string
-    {
-        $start = strpos($data, ".");
-        return "https://p1" . substr($data, $start);
     }
 }
