@@ -2,6 +2,9 @@
 
 namespace App\Console\Commands;
 
+use Domain\Star\Models\Star;
+use Domain\Star\Jobs\SyncVideoDataJob;
+use Domain\Star\DataTransferObjects\StarData;
 use Illuminate\Console\Command;
 
 class SyncVideoDataCommand extends Command
@@ -37,5 +40,8 @@ class SyncVideoDataCommand extends Command
      */
     public function handle()
     {
+        Star::all()
+            ->map(fn ($star) => StarData::fromModel($star))
+            ->map(fn ($star) => SyncVideoDataJob::dispatch($star));
     }
 }
