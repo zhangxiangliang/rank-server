@@ -37,7 +37,10 @@ const dispatch = async (response) => {
 
 const main = async (url) => {
     // 开启浏览器
-    browser = await $puppeteer.launch();
+    browser = await $puppeteer.launch({
+        headless: true,
+        args: ['--no-sandbox']
+    });
 
     // 创建页面
     const page = await browser.newPage();
