@@ -11,7 +11,7 @@ class GetStarVideoListAction
     public function __invoke(StarData $starData): LengthAwarePaginator
     {
         $star = Star::find($starData->id);
-        $videos = $star->videos()->orderBy('douyin_liked', 'desc')->paginate(5);
+        $videos = $star->videos()->orderBy('douyin_liked', 'desc')->paginate(25);
 
         return $videos;
     }
