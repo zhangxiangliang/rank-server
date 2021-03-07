@@ -76,7 +76,7 @@ class SyncVideoDataJob implements ShouldQueue
 
                 $request['douyin_description'] = (string)$video['desc'];
                 $request['douyin_cover'] = (string)$video['video']['cover']['url_list'][0];
-                $request['douyin_link'] = (string)$video['video']['play_addr']['url_list'][0];
+                $request['douyin_link'] = (string)$video['video']['play_addr']['uri'];
                 $request['douyin_dynamic'] = (string)$video['video']['dynamic_cover']['url_list'][0];
 
                 $request['douyin_liked'] = (int)$video['statistics']['digg_count'];

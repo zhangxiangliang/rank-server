@@ -9,7 +9,7 @@ class CreateVideoAction
 {
     public function __invoke(CreateVideoData $createVideoData): Video
     {
-        $video = Video::firstOrCreate(
+        $video = Video::updateOrCreate(
             ['douyin_id' => $createVideoData->douyin_id],
             $createVideoData->toArray()
         );

@@ -91,6 +91,20 @@ class VideoData extends DataTransferObject
      */
     public static function fromModel(Video $video): self
     {
+        $params = http_build_query([
+            'video_id' => $video->douyin_link,
+            'line' => '0',
+            'ratio' => '540p',
+            'media_type' => '4',
+            'vr_type' => '0',
+            'improve_bitrate' => '0',
+            'is_play_url'=>'1',
+            'is_support_h265'=>'0',
+            'source'=>'PackSourceEnum_PUBLISH',
+        ]);
+
+        $url = "https://aweme.snssdk.com/aweme/v1/play/?${params}";
+
         return new self([
             'id' => $video->id,
 
@@ -99,7 +113,7 @@ class VideoData extends DataTransferObject
 
             // 抖音数据
             'douyin_id' => $video->douyin_id,
-            'douyin_link' => $video->douyin_link,
+            'douyin_link' => $url,
             'douyin_cover' => $video->douyin_cover,
             'douyin_dynamic' => $video->douyin_dynamic,
             'douyin_description' => $video->douyin_description,

@@ -5,7 +5,7 @@ namespace Domain\Star\Resources;
 use Domain\Star\DataTransferObjects\VideoData;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class StarResource extends JsonResource
+class VideoResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
