@@ -22,6 +22,7 @@ class CreateStarsTable extends Migration
             $table->string('douyin_link')->default('')->comment('属性: 抖音链接');
             $table->string('douyin_name')->default('')->comment('属性: 抖音用户名');
             $table->string('douyin_avatar')->default('')->comment('属性: 抖音头像');
+            $table->string('douyin_description', 1024)->default('')->comment('属性: 抖音描述');
 
             $table->unsignedBigInteger('douyin_following')->default(0)->comment('属性: 抖音关注数');
             $table->unsignedBigInteger('douyin_follower')->default(0)->comment('属性: 抖音粉丝数');
@@ -30,8 +31,8 @@ class CreateStarsTable extends Migration
             $table->unsignedBigInteger('douyin_like')->default(0)->comment('属性: 抖音喜欢数');
 
             // 本地数据
-            $table->unsignedBigInteger('liked')->default(0)->comment('索引: 点赞数');
-            $table->unsignedBigInteger('follower')->default(0)->comment('索引: 粉丝数');
+            $table->unsignedBigInteger('liked')->default(0)->comment('属性: 点赞数');
+            $table->unsignedBigInteger('follower')->default(0)->comment('属性: 粉丝数');
 
             $table->timestamps();
         });
