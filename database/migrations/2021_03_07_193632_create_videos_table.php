@@ -16,7 +16,7 @@ class CreateVideosTable extends Migration
         Schema::create('videos', function (Blueprint $table) {
             // 索引相关
             $table->bigIncrements('id')->comment('索引: 主键');
-            $table->unsignedBigInteger('star_id')->default(0)->comment('索引: 视频ID');
+            $table->unsignedBigInteger('star_id')->default(0)->comment('索引: 抖音ID');
 
             // 抖音数据
             $table->string('douyin_id')->default('')->comment('属性: 抖音视频ID');

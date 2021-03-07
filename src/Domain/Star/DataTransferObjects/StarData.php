@@ -107,4 +107,31 @@ class StarData extends DataTransferObject
             'douyin_like' => $star->douyin_like,
         ]);
     }
+
+    /**
+     * 格式化请求数据
+     *
+     * @return self
+     */
+    public static function fromRequest(): self
+    {
+        $data = [];
+        $data['id'] = (int)request()->route('id');
+
+        return new self([
+            'id' => $data['id'],
+            'douyin_id' => '',
+            'douyin_name' => '',
+            'douyin_link' => '',
+
+            'douyin_avatar' => '',
+            'douyin_description' => '',
+
+            'douyin_following' => 0,
+            'douyin_follower' => 0,
+            'douyin_liked' => 0,
+            'douyin_video' => 0,
+            'douyin_like' => 0,
+        ]);
+    }
 }

@@ -7,7 +7,7 @@ use Spatie\DataTransferObject\DataTransferObject;
 class CreateVideoData extends DataTransferObject
 {
     /**
-     * 视频ID
+     * 抖音ID
      *
      * @var int
      */

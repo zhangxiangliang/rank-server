@@ -20,6 +20,8 @@ Route::group(['namespace' => 'App\Api\Controllers', 'prefix' => 'v1'], function 
 
     Route::group(['prefix' => 'star', ], function () {
         Route::get('/', 'StarController@index');
+        Route::get('/{id}', 'StarController@show');
+        Route::get('/{id}/videos', 'StarController@videos');
     });
 
     Route::group(['prefix' => 'log', ], function () {

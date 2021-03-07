@@ -2,7 +2,6 @@
 
 namespace Domain\Star\Actions;
 
-use Domain\Star\DataTransferObjects\CreateStarData;
 use Domain\Star\Models\Star;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
