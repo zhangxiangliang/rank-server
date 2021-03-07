@@ -29,4 +29,14 @@ class Star extends Model
      */
     protected $casts = [
     ];
+
+    /**
+     * Get the star that owns the videos.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
 }

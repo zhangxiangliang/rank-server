@@ -29,6 +29,13 @@ class CreateStarData extends DataTransferObject
     public string $douyin_avatar;
 
     /**
+     * 抖音描述
+     *
+     * @var string
+     */
+    public string $douyin_description;
+
+    /**
      * 抖音链接
      *
      * @var string
@@ -82,8 +89,10 @@ class CreateStarData extends DataTransferObject
         $star = Star::firstOrNew(['douyin_id' => $data['douyin_id']], [
             'douyin_id' => $data['douyin_id'],
             'douyin_name' => $data['douyin_name'],
-            'douyin_avatar' => '',
             'douyin_link' => $data['douyin_link'],
+
+            'douyin_avatar' => '',
+            'douyin_description' => '',
 
             'douyin_following' => 0,
             'douyin_follower' => 0,
@@ -95,8 +104,10 @@ class CreateStarData extends DataTransferObject
         return new self([
             'douyin_id' => $star['douyin_id'],
             'douyin_name' => $star['douyin_name'],
-            'douyin_avatar' => $star['douyin_avatar'],
             'douyin_link' => $star['douyin_link'],
+
+            'douyin_avatar' => $star['douyin_avatar'],
+            'douyin_description' => $star['douyin_description'],
 
             'douyin_following' => $star['douyin_following'],
             'douyin_follower' => $star['douyin_follower'],

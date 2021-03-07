@@ -36,6 +36,13 @@ class StarData extends DataTransferObject
     public string $douyin_avatar;
 
     /**
+     * 抖音描述
+     *
+     * @var string
+     */
+    public string $douyin_description;
+
+    /**
      * 抖音链接
      *
      * @var string
@@ -88,8 +95,10 @@ class StarData extends DataTransferObject
             'id' => $star->id,
             'douyin_id' => $star->douyin_id,
             'douyin_name' => $star->douyin_name,
-            'douyin_avatar' => $star->douyin_avatar,
             'douyin_link' => $star->douyin_link,
+
+            'douyin_avatar' => $star->douyin_avatar,
+            'douyin_description' => $star->douyin_description,
 
             'douyin_following' => $star->douyin_following,
             'douyin_follower' => $star->douyin_follower,
