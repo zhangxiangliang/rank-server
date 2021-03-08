@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.5",
         "overtrue/laravel-wechat": "^6.0",
         "spatie/data-transfer-object": "^2.8",
+        "spatie/laravel-enum": "^2.4",
         "spatie/laravel-permission": "^4.0",
         "tymon/jwt-auth": "^1.0.0"
     },

@@ -2,6 +2,7 @@
 
 namespace Domain\Star\Models;
 
+use Domain\Star\Enums\StarStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 
 class Star extends Model
@@ -28,6 +29,7 @@ class Star extends Model
      * @var array
      */
     protected $casts = [
+        'status' => StarStatusEnum::class,
     ];
 
     /**

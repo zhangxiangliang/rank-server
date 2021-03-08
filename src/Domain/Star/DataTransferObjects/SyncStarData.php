@@ -2,6 +2,7 @@
 
 namespace Domain\Star\DataTransferObjects;
 
+use Domain\Star\Models\Star;
 use Spatie\DataTransferObject\DataTransferObject;
 
 class SyncStarData extends DataTransferObject
@@ -77,6 +78,13 @@ class SyncStarData extends DataTransferObject
     public int $douyin_like;
 
     /**
+     * 抖音权重
+     *
+     * @var int
+     */
+    public int $weight;
+
+    /**
      * 格式化请求数据
      *
      * @return self
@@ -98,19 +106,29 @@ class SyncStarData extends DataTransferObject
             'douyin_like'
         ]);
 
+        // 获取数据
+        $star = Star::query()
+            ->where(['douyin_id' => $data['douyin_id']])
+            ->first();
+
+        // 计算公式
+        $data['douyin_video'] = $star->videos()->count();
+        $data['weight']  = $data['douyin_liked'] == 0 ? 0 : $data['douyin_liked'] / $data['douyin_follower'] * 1000;
+
         return new self([
-            'douyin_id' => $data['douyin_id'],
-            'douyin_name' => $data['douyin_name'],
-            'douyin_link' => $data['douyin_link'],
+            'douyin_id' => (string)$data['douyin_id'],
+            'douyin_name' => (string)$data['douyin_name'],
+            'douyin_link' => (string)$data['douyin_link'],
 
-            'douyin_avatar' => $data['douyin_avatar'],
-            'douyin_description' => $data['douyin_description'],
+            'douyin_avatar' => (string)$data['douyin_avatar'],
+            'douyin_description' => (string)$data['douyin_description'],
 
-            'douyin_following' => $data['douyin_following'],
-            'douyin_follower' => $data['douyin_follower'],
-            'douyin_liked' => $data['douyin_liked'],
-            'douyin_video' => $data['douyin_video'],
-            'douyin_like' => $data['douyin_like'],
+            'douyin_following' => (int)$data['douyin_following'],
+            'douyin_follower' => (int)$data['douyin_follower'],
+            'douyin_liked' => (int)$data['douyin_liked'],
+            'douyin_video' => (int)$data['douyin_video'],
+            'douyin_like' => (int)$data['douyin_like'],
+            'weight' => (int)$data['weight'],
         ]);
     }
 }
