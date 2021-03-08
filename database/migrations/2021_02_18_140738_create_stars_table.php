@@ -31,6 +31,8 @@ class CreateStarsTable extends Migration
             $table->unsignedBigInteger('douyin_like')->default(0)->comment('属性: 抖音喜欢数');
 
             // 本地数据
+            $table->string('status')->default('RUNNING')->comment('属性: 状态');
+            $table->unsignedBigInteger('weight')->default(0)->comment('属性: 权重');
             $table->unsignedBigInteger('liked')->default(0)->comment('属性: 点赞数');
             $table->unsignedBigInteger('follower')->default(0)->comment('属性: 粉丝数');
 
