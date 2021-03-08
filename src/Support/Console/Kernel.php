@@ -15,6 +15,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\SyncStarDataCommand::class,
         \App\Console\Commands\SyncVideoDataCommand::class,
+        \App\Console\Commands\SyncAllStarDataCommand::class,
+        \App\Console\Commands\SyncAllVideoDataCommand::class,
     ];
 
     /**

@@ -61,6 +61,12 @@ class StarSeeder extends Seeder
             ['douyin_id' => 'ailele312', 'douyin_name' => '奈子', 'douyin_link' => "https://v.douyin.com/Jopxa5P"],
             ['douyin_id' => 'zsx0304_', 'douyin_name' => '小愛同學', 'douyin_link' => "https://v.douyin.com/JopVCj1"],
             ['douyin_id' => 'sweetni02', 'douyin_name' => '甜豆腻', 'douyin_link' => "https://v.douyin.com/Jop5a2m"],
+
+            // 熊熊怪
+            ['douyin_id' => 'henhaochi0.0', 'douyin_name' => '很好吃👅', 'douyin_link' => "https://v.douyin.com/edcxH8v"],
+            ['douyin_id' => 'rzq6868', 'douyin_name' => '智乔lucky', 'douyin_link' => "https://v.douyin.com/ed3e4J1"],
+            ['douyin_id' => '285284505', 'douyin_name' => '💍Coffee', 'douyin_link' => "https://v.douyin.com/ed3RKRR"],
+            ['douyin_id' => 'usagiwing', 'douyin_name' => '紫菜蛋花兔', 'douyin_link' => "https://v.douyin.com/ed3SeeL"],
         ];
 
         collect($stars)->map(function ($star) {

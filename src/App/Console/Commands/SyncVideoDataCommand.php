@@ -40,7 +40,9 @@ class SyncVideoDataCommand extends Command
      */
     public function handle()
     {
-        Star::all()
+        Star::query()
+            ->where('douyin_video', 0)
+            ->get()
             ->map(fn ($star) => StarData::fromModel($star))
             ->map(fn ($star) => SyncVideoDataJob::dispatch($star));
     }

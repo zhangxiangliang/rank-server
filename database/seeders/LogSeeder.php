@@ -19,6 +19,7 @@ class LogSeeder extends Seeder
             ['version' => '0.0.1', 'created_at' => '2021-02-14', 'content' => ["增加电气鼠排行榜"]],
             ['version' => '0.0.2', 'created_at' => '2021-02-24', 'content' => ["增加电气鼠头像", "增加电气鼠账号复制", "增加底部导航栏和我的功能"]],
             ['version' => '0.0.3', 'created_at' => '2021-02-26', 'content' => ["增加小程序分享功能", "增加日志功能"]],
+            ['version' => '0.0.4', 'created_at' => '2021-03-08', 'content' => ["增加电气鼠详情", "增加电气鼠视频播放"]],
         ];
 
         collect($logs)->map(function ($log) {
