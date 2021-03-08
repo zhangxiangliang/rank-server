@@ -13,7 +13,7 @@ class GetStarListAction
         $stars = Star::query()
             ->orderBy('weight', 'desc')
             ->where('status', StarStatusEnum::RUNNING())
-            ->paginate(25);
+            ->paginate(100);
 
         return $stars;
     }
